@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from "react";
 import {
   AppRoot,
   SplitLayout,
@@ -8,12 +8,13 @@ import {
   PanelHeader,
   Header,
   Group,
-  SimpleCell, usePlatform,
-} from '@vkontakte/vkui';
-import '@vkontakte/vkui/dist/vkui.css';
-import {useEffect, useState} from "react";
-import {TGroup} from "../../utils/types";
-import {getGroups} from "../../utils/api";
+  SimpleCell,
+  usePlatform,
+} from "@vkontakte/vkui";
+import "@vkontakte/vkui/dist/vkui.css";
+import { useEffect, useState } from "react";
+import { TGroup } from "../../utils/types";
+import { getGroups } from "../../utils/api";
 import GroupContainer from "../GroupContainer/GroupContainer";
 
 const App = () => {
@@ -36,28 +37,31 @@ const App = () => {
   };
 
   useEffect(() => {
-    fetchGroups()
+    fetchGroups();
   }, []);
 
-  console.log(groups)
+  console.log(groups);
 
   return (
-      <AppRoot>
-        <SplitLayout header={platform !== 'vkcom' && <PanelHeader delimiter="none"/>}>
-          <SplitCol autoSpaced>
-            <View activePanel="main">
-              <Panel id="main">
-                <PanelHeader>Community VK test</PanelHeader>
-                <Group header={<Header mode="secondary">Groups</Header>}>
-                  {groups.length && groups.map(group => (
-                      <GroupContainer info={group} key={group.id}/>
+    <AppRoot>
+      <SplitLayout
+        header={platform !== "vkcom" && <PanelHeader delimiter="none" />}
+      >
+        <SplitCol autoSpaced>
+          <View activePanel="main">
+            <Panel id="main">
+              <PanelHeader>Community VK test</PanelHeader>
+              <Group header={<Header mode="secondary">Groups</Header>}>
+                {groups.length &&
+                  groups.map((group) => (
+                    <GroupContainer info={group} key={group.id} />
                   ))}
-                </Group>
-              </Panel>
-            </View>
-          </SplitCol>
-        </SplitLayout>
-      </AppRoot>
+              </Group>
+            </Panel>
+          </View>
+        </SplitCol>
+      </SplitLayout>
+    </AppRoot>
   );
 };
 
