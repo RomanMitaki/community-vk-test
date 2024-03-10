@@ -8,8 +8,8 @@ import {
   PanelHeader,
   Header,
   Group,
-  SimpleCell,
   usePlatform,
+  Spinner,
 } from "@vkontakte/vkui";
 import "@vkontakte/vkui/dist/vkui.css";
 import { ReactNode, useEffect, useState } from "react";
@@ -46,7 +46,7 @@ const App = () => {
     fetchGroups();
   }, []);
 
-  console.log(groups);
+  //console.log(groups);
 
   return (
     <AppRoot>
@@ -64,10 +64,14 @@ const App = () => {
                 groups={groups}
               />
               <Group header={<Header mode="secondary">Groups</Header>}>
-                {renderGroups.length &&
+                {isLoading ? (
+                  <Spinner size="large" />
+                ) : (
+                  renderGroups.length &&
                   renderGroups.map((group) => (
                     <GroupContainer info={group} key={group.id} />
-                  ))}
+                  ))
+                )}
               </Group>
             </Panel>
           </View>
