@@ -1,5 +1,5 @@
 import { TGroup } from "../../utils/types";
 
-export const filterPrivateFieldClear = (data: TGroup[]) => {
+export const filterFriendsFieldClear = (data: TGroup[]) => {
   return data;
 };

@@ -12,7 +12,7 @@ import {
   usePlatform,
 } from "@vkontakte/vkui";
 import "@vkontakte/vkui/dist/vkui.css";
-import {ReactNode, useEffect, useState} from "react";
+import { ReactNode, useEffect, useState } from "react";
 import { TGroup } from "../../utils/types";
 import { getGroups } from "../../utils/api";
 import GroupContainer from "../GroupContainer/GroupContainer";
@@ -59,9 +59,9 @@ const App = () => {
             <Panel id="main">
               <PanelHeader>Community VK test</PanelHeader>
               <Filter
-                  setPopout={setPopout}
-                  setRenderGroups={setRenderGroups}
-                  groups={groups}
+                setPopout={setPopout}
+                setRenderGroups={setRenderGroups}
+                groups={groups}
               />
               <Group header={<Header mode="secondary">Groups</Header>}>
                 {renderGroups.length &&
